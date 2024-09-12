@@ -5,7 +5,6 @@ import { dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const tasksFilePath = `${__dirname}/../tasks.json`;
-console.log({ tasksFilePath });
 
 export function readTasks() {
     if (!fs.existsSync(tasksFilePath)) {
