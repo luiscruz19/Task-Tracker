@@ -14,7 +14,7 @@
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/luiscruz19/Task-Tracker.git
+   git clone https://github.com/luiscruz19/Task-Tracker.git task-tracker-cli
    cd task-tracker-cli
 
 2. **Install dependencies:**
@@ -23,29 +23,29 @@
    ```
 3. **Run the application:**
    
-   - Adding a new task
+   - **Adding a new task**
    ```
    task-cli add "Buy groceries"
    ```
 
-   - Updating and deleting tasks
+   - **Updating and deleting tasks**
    ```
    task-cli update 1 "Buy groceries and cook dinner"
    task-cli delete 1 
    ```
 
-   - Marking a task as in progress or done
+   - **Marking a task as in progress or done**
    ```
    task-cli mark-in-progress 1
    task-cli mark-done 1
    ```
 
-   - Listing all tasks
+   - **Listing all tasks**
    ```
    task-cli list
    ```
 
-   - Listing tasks by status
+   - **Listing tasks by status**
    ```
    task-cli list done
    task-cli list todo
