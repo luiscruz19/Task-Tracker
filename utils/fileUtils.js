@@ -4,7 +4,7 @@ import { dirname } from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const tasksFilePath = `${__dirname}/../tasks.json`;
+const tasksFilePath = `${__dirname.replaceAll('/utils', '/')}tasks.json`;
 
 export function readTasks() {
     if (!fs.existsSync(tasksFilePath)) {
@@ -14,8 +14,8 @@ export function readTasks() {
     return JSON.parse(data);
 }
 
-export function writeTasks(tasks) {
-    fs.writeFileSync(tasksFilePath, JSON.stringify(tasks, null, 2));
+export function writeTasks(task) {
+    fs.writeFileSync(tasksFilePath, JSON.stringify(task, null, 2));
 }
 
 export function getNextId(tasks) {

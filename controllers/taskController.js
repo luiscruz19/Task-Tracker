@@ -1,6 +1,7 @@
 import { readTasks, writeTasks, getNextId } from '../utils/fileUtils.js';
 
-export function addTask(description) {
+export function addTask({ description }) {
+    console.log({ description });
     const tasks = readTasks();
     const newTask = {
         id: getNextId(tasks),
@@ -14,7 +15,7 @@ export function addTask(description) {
     return `Task added successfully (ID: ${newTask.id})`;
 }
 
-export function updateTask(id, description) {
+export function updateTask({ id, description }) {
     const tasks = readTasks();
     const task = tasks.find(t => t.id == id);
     if (task) {
@@ -27,14 +28,14 @@ export function updateTask(id, description) {
     }
 }
 
-export function deleteTask(id) {
+export function deleteTask({ id }) {
     let tasks = readTasks();
     tasks = tasks.filter(t => t.id != id);
     writeTasks(tasks);
     return `Task ${id} deleted successfully`;
 }
 
-export function updateStatusTask(id, status) {
+export function updateStatusTask({ id, status }) {
     const tasks = readTasks();
     const task = tasks.find(t => t.id == id);
     if (task) {
@@ -47,7 +48,7 @@ export function updateStatusTask(id, status) {
     }
 }
 
-export function listTasks(status = null) {
+export function listTasks({ status = null }) {
     const tasks = readTasks();
     return status ? tasks.filter(t => t.status === status) : tasks;
 }

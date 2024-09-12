@@ -10,7 +10,7 @@ program
     .description('Add a new task')
     .action((description) => {
         try {
-            const result = addTask(description);
+            const result = addTask({ description });
             console.log(result);
         } catch (error) {
             console.error(error.message);
@@ -22,7 +22,7 @@ program
     .description('Update a task description')
     .action((id, description) => {
         try {
-            const result = updateTask(id, description);
+            const result = updateTask({ id, description });
             console.log(result);
         } catch (error) {
             console.error(error.message);
@@ -34,7 +34,7 @@ program
     .description('Delete a task')
     .action((id) => {
         try {
-            const result = deleteTask(id);
+            const result = deleteTask({ id });
             console.log(result);
         } catch (error) {
             console.error(error.message);
@@ -47,7 +47,7 @@ program
     .action((id) => {
         try {
             const status = 'in-progress';
-            const result = updateStatusTask(id, status);
+            const result = updateStatusTask({ id, status });
             console.log(result);
         } catch (error) {
             console.error(error.message);
@@ -60,7 +60,7 @@ program
     .action((id) => {
         try {
             const status = 'done';
-            const result = updateStatusTask(id, status);
+            const result = updateStatusTask({ id, status });
             console.log(result);
         } catch (error) {
             console.error(error.message);
@@ -72,7 +72,7 @@ program
     .description('List tasks by status')
     .action((status) => {
         try {
-            const tasks = listTasks(status);
+            const tasks = listTasks({ status });
             if (tasks.length > 0) {
                 console.table(tasks);
             } else {
